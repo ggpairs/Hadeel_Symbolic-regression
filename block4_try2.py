@@ -135,7 +135,7 @@ groups = df["user_id"].astype("category").cat.codes.values
 sc_base = StandardScaler(); Xb = sc_base.fit_transform(X_base)
 sc_full = StandardScaler(); Xf = sc_full.fit_transform(X_full)
 
-def group_cv_sparse(X, y, groups, C_grid=(0.01, 0.1, 1.0, 10.0)):
+def group_cv_sparse(X, y, groups, C_grid=(0.01, 0.1, 1.0, 10.0)): # "C" is the candidate regularisation strength: the weight of the simplicity penalty we impose during training
     gkf = GroupKFold(n_splits=5)
     rows, best = [], None
     for C in C_grid:
